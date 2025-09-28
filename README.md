@@ -1,2 +1,4 @@
-# initial_checkpoint_nirmal_bharat
-the initial repo for checking the responsivity of the website 
+# Swadeshi-For-Atmanirbhar-Bharat
+My first repository on github
+<br>
+Author-Riya Kumari

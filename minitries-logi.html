@@ -1,0 +1,249 @@
+<!DOCTYPE html> <!-- Declares the document type as HTML5. This is the very first thing in your HTML document. -->
+<html lang="en"> <!-- The root element of an HTML page. 'lang="en"' specifies the language of the page is English. -->
+<head> <!-- The head element is a container for metadata (data about data) and is placed between the <html> tag and the <body> tag. -->
+    
+    <!-- Meta tags provide metadata about the HTML document. They are not displayed on the page but are machine parsable. -->
+    <meta charset="UTF-8"> <!-- Specifies the character encoding for the document, UTF-8 is standard and includes most characters. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets the viewport to make the website look good on all devices (responsive design). -->
+    
+    <title>Ministry Login - Waste Management Complaint Portal</title> <!-- Defines the title of the document, shown in the browser's title bar or in the page's tab. -->
+    
+    <!-- External Resources -->
+    <!-- This script tag includes Tailwind CSS, a utility-first CSS framework for rapidly building custom designs. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- These links connect to Google Fonts to use the 'Poppins' font family on the page. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS -->
+    <style> /* The <style> tag is used to define style information (CSS) for a document. */
+        /* This rule applies the 'Poppins' font to the entire body of the page, with sans-serif as a fallback. */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* This custom class creates a background image with a dark blue semi-transparent overlay. */
+        .info-panel {
+            /* linear-gradient creates the color overlay. The color is defined in RGBA format (Red, Green, Blue, Alpha/transparency). */
+            background-image: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)), url('https://placehold.co/1000x1200/a3e635/003366?text=Clean+City');
+            background-size: cover; /* Ensures the background image covers the entire element. */
+            background-position: center; /* Centers the background image. */
+        }
+        
+        /* This class styles the eye icon for toggling password visibility. */
+        .password-toggle-icon {
+            cursor: pointer; /* Changes the mouse cursor to a pointer to indicate it's clickable. */
+            position: absolute; /* Positions the icon relative to its nearest positioned ancestor. */
+            top: 50%; /* Positions the top edge of the icon at the 50% mark of the parent element. */
+            right: 1rem; /* Positions the icon 1rem from the right edge. */
+            transform: translateY(-50%); /* Moves the icon up by 50% of its own height to perfectly center it vertically. */
+            color: #6b7280; /* Sets the icon color to gray. */
+        }
+    </style>
+</head>
+<body class="bg-gray-100"> <!-- The body tag defines the document's body. The Tailwind class 'bg-gray-100' sets a light gray background color. -->
+
+    <!-- Main Container -->
+    <!-- This div is the main container for the login card. Tailwind classes are used for styling: -->
+    <!-- 'flex': Enables flexbox layout. -->
+    <!-- 'items-center', 'justify-center': Centers the content vertically and horizontally. -->
+    <!-- 'min-h-screen': Sets the minimum height to the full height of the screen. -->
+    <div class="flex items-center justify-center min-h-screen">
+        <!-- This is the login card container. -->
+        <!-- 'relative': Sets the positioning context for absolute children. -->
+        <!-- 'flex', 'flex-col', 'md:flex-row': Manages layout, stacking vertically on small screens and horizontally on medium screens and up. -->
+        <!-- 'm-6': Applies margin. -->
+        <!-- 'bg-white', 'shadow-2xl', 'rounded-2xl': Sets background color, a large shadow, and rounded corners. -->
+        <!-- 'w-full', 'max-w-5xl': Makes the card responsive, taking full width up to a maximum size. -->
+        <div class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 w-full max-w-5xl">
+            
+            <!-- Left Side (Informational Panel) -->
+            <!-- 'md:w-1/2': On medium screens and up, this panel takes half the width. -->
+            <!-- 'info-panel': Custom class for the background image and overlay. -->
+            <div class="relative w-full md:w-1/2 info-panel rounded-2xl md:rounded-r-none">
+                <!-- Inner container for padding and layout. -->
+                <div class="flex flex-col justify-center p-8 md:p-14 text-white">
+                    
+                    <!-- Logo and Ministry Name Section -->
+                    <div class="flex items-center mb-6"> <!-- mb-6: margin-bottom 6 units -->
+                        <!-- SVG (Scalable Vector Graphic) is used for the logo so it remains sharp at any size. -->
+                        <svg class="w-12 h-12 mr-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 10.5L12 12L9 10.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.5 9.5C20.5 10.8807 19.3807 12 18 12C16.6193 12 15.5 10.8807 15.5 9.5C15.5 8.11929 16.6193 7 18 7C19.3807 7 20.5 8.11929 20.5 9.5Z" stroke="#4ade80" stroke-width="1.5"/>
+                        </svg>
+                        <div>
+                            <h2 class="font-bold text-xl tracking-wide">Ministry of Environment</h2>
+                            <p class="text-sm">Government of India</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slogan -->
+                    <h1 class="text-4xl font-bold leading-tight mb-4">Your Complaint, Our Commitment to a Cleaner Nation.</h1>
+                    <p class="font-light">Official portal for waste management authorities to review and resolve citizen complaints efficiently.</p>
+                </div>
+                
+                <!-- Footer on info panel -->
+                <!-- 'absolute', 'bottom-8', 'left-8', 'right-8': Positions the footer at the bottom of the info panel. -->
+                <div class="absolute bottom-8 left-8 right-8 text-center text-white text-xs">
+                    &copy; 2025 Ministry of Environment, All Rights Reserved
+                </div>
+            </div>
+
+            <!-- Right Side (Login Form) -->
+            <!-- This container holds the login form itself. -->
+            <div class="w-full md:w-1/2 p-8 md:p-16 flex items-center justify-center">
+                <div class="w-full max-w-md">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Authorized Personnel Login</h1>
+                    <p class="text-sm text-gray-600 mb-8">Please enter your credentials to access the dashboard.</p>
+                    
+                    <!-- The <form> element represents a section of the document that contains interactive controls to submit information. -->
+                    <!-- 'novalidate' attribute prevents the browser's default validation, allowing for custom validation with JavaScript. -->
+                    <form id="loginForm" novalidate>
+                        
+                        <!-- Email/Username Input Field Group -->
+                        <div class="mb-5">
+                            <!-- <label> provides a caption for an item in a user interface. 'for' attribute links it to the input field. -->
+                            <label for="username" class="block mb-2 text-sm font-medium text-gray-700">Official ID / Username</label>
+                            <div class="relative"> <!-- 'relative' is needed to position the icon inside the input field. -->
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                </div>
+                                <!-- <input> creates an interactive control to accept data from the user. -->
+                                <!-- 'type="text"': A single-line text field. -->
+                                <!-- 'id="username"': Unique identifier for the element. -->
+                                <!-- 'placeholder': Hint text that disappears on focus. -->
+                                <!-- 'required': Specifies that the field must be filled out before submitting. -->
+                                <input type="text" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Enter your official ID" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Password Input Field Group -->
+                        <div class="mb-5">
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+                            <div class="relative">
+                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                </div>
+                                <!-- 'type="password"': A single-line text field whose value is obscured. -->
+                                <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="•••••••••" required>
+                                <!-- This span holds the eye icons for the password toggle functionality. -->
+                                <span id="togglePassword" class="password-toggle-icon">
+                                    <!-- Eye Icon (Show Password) -->
+                                    <svg id="eye-show" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    <!-- Eye-off Icon (Hide Password), initially hidden. -->
+                                    <svg id="eye-hide" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 1.274-4.057 5.064-7 9.542-7 .847 0 1.67.128 2.453.36M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12s3.273-6.182 9-6.182M12 17.5c-3.142 0-6-.273-6-1.5s2.858-1.5 6-1.5m6.182-4.818A12.002 12.002 0 0012 5c-3.273 0-6.182 2.818-6.182 6.182"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18"></path></svg>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Helper Links (Remember Me & Forgot Password) -->
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center">
+                                <!-- 'type="checkbox"': A checkbox. -->
+                                <input id="remember-me" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="remember-me" class="ml-2 text-sm font-medium text-gray-700">Remember Me</label>
+                            </div>
+                            <!-- '<a>' tag defines a hyperlink. 'href="#"' is a placeholder link. -->
+                            <a href="#" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
+                        </div>
+                        
+                        <!-- Login Button -->
+                        <!-- '<button type="submit">' creates a button that submits the form data. -->
+                        <button type="submit" class="w-full text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center transition-colors duration-300">
+                            Login Securely
+                        </button>
+                    </form>
+
+                    <!-- Security Information Text -->
+                    <div class="text-center mt-6">
+                        <p class="text-xs text-gray-500">
+                            For security purposes, your IP address is being logged. <br/>
+                            Unauthorized access is strictly prohibited.
+                        </p>
+                         <p class="text-xs text-gray-400 mt-2">
+                            Protected by reCAPTCHA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript block -->
+    <script>
+        // --- JavaScript for Password Toggle Functionality ---
+        
+        // Select the necessary HTML elements from the DOM using their IDs and store them in constants.
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+        const eyeShowIcon = document.getElementById('eye-show');
+        const eyeHideIcon = document.getElementById('eye-hide');
+
+        // 'addEventListener' attaches an event handler to the specified element.
+        // Here, we listen for a 'click' event on the togglePassword element (the eye icon).
+        togglePassword.addEventListener('click', function () {
+            // Check the current 'type' of the password input field.
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            // Set the 'type' attribute to the new value. If it was 'password', it becomes 'text' (showing the characters), and vice-versa.
+            passwordInput.setAttribute('type', type);
+
+            // Toggle the 'hidden' class on the two eye icons to switch between them.
+            eyeShowIcon.classList.toggle('hidden');
+            eyeHideIcon.classList.toggle('hidden');
+        });
+
+        // --- Basic Form Validation Feedback ---
+        // This is a simple example for demonstration. A real application would have more robust validation logic.
+        
+        // Get the form element.
+        const loginForm = document.getElementById('loginForm');
+        
+        // Add a 'submit' event listener to the form. This function runs when the user tries to submit the form.
+        loginForm.addEventListener('submit', function(event) {
+            // 'event.preventDefault()' stops the default form submission behavior (which would reload the page).
+            event.preventDefault(); 
+
+            // Get the username and password input elements.
+            const username = document.getElementById('username');
+            const password = document.getElementById('password');
+            let isValid = true; // A flag to track if the form is valid.
+
+            // Reset any previous validation styles by removing the red border class.
+            username.classList.remove('border-red-500');
+            password.classList.remove('border-red-500');
+
+            // Check if the username field is empty (after trimming whitespace).
+            if (username.value.trim() === '') {
+                // If empty, add a red border to indicate an error.
+                username.classList.add('border-red-500');
+                isValid = false; // Mark the form as invalid.
+            }
+
+            // Check if the password field is empty.
+            if (password.value.trim() === '') {
+                // If empty, add a red border.
+                password.classList.add('border-red-500');
+                isValid = false; // Mark the form as invalid.
+            }
+
+            // After checking all fields, see if the form is still valid.
+            if (isValid) {
+                // In a real application, you would send the data to a server here.
+                // For this example, we just log to the console and show an alert.
+                console.log('Form is valid. Submitting...');
+                alert('Login form submitted (for demo purposes). Check the console.');
+            } else {
+                 // If the form is invalid, log it to the console.
+                 console.log('Form is invalid.');
+            }
+        });
+    </script>
+</body>
+</html>
+

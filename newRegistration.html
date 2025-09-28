@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Bharat: Tech For a Clean Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* --- Header & Top Bar Styles --- */
+        .searchbar {
+            background-color: #e9e9e9;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .searchbar a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px 0 5px;
+        }
+        
+        /* Main Header Section */
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Better alignment */
+            padding: 15px;
+            background-color: #fff;
+            flex-wrap: wrap; /* Allows items to wrap onto the next line on small screens */
+        }
+        
+        .header-main .logo-container {
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .header-main .logo-container img {
+            width: 80px; /* Adjusted logo size */
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .header-main .title-text h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            justify-content: center;
+        }
+
+        .header-main .title-text span {
+            font-size: 1rem;
+            color: #34495e;
+        }
+
+        .header-main .slogan-text h2 {
+            margin: 0;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #16a085;
+        }
+        
+        .header-main .slogan-text span {
+            display: block;
+        }
+        
+        .header-main #green-leaf img {
+            width: 100px;
+            height: auto;
+        }
+
+
+        /* --- RESPONSIVE NAVIGATION BAR (NAV-NEO) --- */
+        .navbar-container {
+            position: relative; /* Needed for positioning the hamburger menu */
+        }
+
+        .navbar-neo {
+            background-color: #daf86ebb;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-neo ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-neo li {
+            margin: 0 15px;
+        }
+
+        .navbar-neo a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar-neo a:hover, .navbar-neo a.active {
+            background-color: #1b8820c7;
+            color: #ffffff;
+        }
+        
+        /* Hamburger Menu Icon Styling */
+        .menu-toggle {
+            display: none; /* Hidden by default on large screens */
+            font-size: 2rem;
+            color: #333;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+
+        /* --- Form Container --- */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0; /* Add vertical padding */
+            width: 100%;
+            background-color: #f9f9f9;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        #new-registration {
+            width: 70%;
+            max-width: 800px; /* Added max-width to prevent it from getting too wide */
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px 40px;
+            margin: 20px 0;
+        }
+        
+        select {
+             width: 100%; /* Make select full width of its container */
+             padding: 10px 15px;
+             font-size: 16px;
+             border: 1px solid #ccc;
+             border-radius: 8px;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #reg-form h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+
+        #reg-form h1::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            height: 4px;
+            width: 50px;
+            background-color: #6e8efb;
+            border-radius: 2px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        #reg-form input {
+            box-sizing: border-box; /* Ensures padding doesn't affect the total width */
+            width: 100%;
+            height: 50px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #reg-form input:focus {
+            border-color: #6e8efb;
+            box-shadow: 0 0 8px rgba(110, 142, 251, 0.25);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(-135deg, #6e8efb, #a777e3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- 📱 RESPONSIVE DESIGN - MEDIA QUERIES 📱 --- */
+
+        /* For Tablets (Screens less than 768px) */
+        @media (max-width: 768px) {
+            /* Show the hamburger menu icon */
+            .menu-toggle {
+                display: block;
+            }
+            
+            /* Hide the original navigation links */
+            .navbar-neo ul {
+                display: none;
+                flex-direction: column; /* Stack links vertically */
+                width: 100%;
+                background-color: #f8f8f8;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            /* Style for when the menu is active/shown */
+            .navbar-neo ul.active {
+                display: flex;
+            }
+
+            .navbar-neo li {
+                margin: 10px 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            /* Make the form wider to use more screen space */
+            #new-registration {
+                width: 85%;
+            }
+
+            /* Adjust header layout for tablets */
+            .header-main {
+                flex-direction: column;
+                gap: 15px; /* Add space between stacked items */
+            }
+        }
+
+        /* For Mobile Phones (Screens less than 600px) */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 15px; /* Reduce padding on smallest screens */
+            }
+
+            #new-registration {
+                width: 95%; /* Make form almost full width */
+                padding: 20px;
+            }
+
+            #reg-form h1 {
+                font-size: 24px;
+            }
+            
+            .header-main .title-text h1 {
+                font-size: 1.2rem;
+            }
+            .header-main .slogan-text h2 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="searchbar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="#">Search</a>
+            <i class="fa-solid fa-phone"></i>
+            <a href="#">Toll Free No.</a>
+        </div>
+        
+        <div class="header-main">
+            <div class="logo-container">
+                <img src="logo.png" alt="Nirmal Bharat Logo">
+                <div class="title-text">
+                    <h1>Nirmal Bharat</h1>
+                    <span>Tech For a clean Future</span>
+                </div>
+            </div>
+            <div class="slogan-text">
+                <h2>
+                    <span>Clean India</span>
+                    <span>Green India</span>
+                </h2>
+            </div>
+            <div id="green-leaf">
+                <img src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-green-leaf-icon-vector-png-image_6005736.png"
+                    alt="Green Leaf Icon">
+            </div>
+        </div>
+
+        <div class="navbar-container">
+            <nav class="navbar-neo">
+                <ul id="nav-links">
+                    <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="aboutMinistries.html">Concerned Ministries</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="notice.html">Notice</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <div id="new-registration">
+            <form action="#" method="post" id="reg-form">
+                <h1>Create Account ✨</h1>
+
+                <div class="form-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="firstName" placeholder="e.g., Ram" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="middle-name">Middle Name (Optional)</label>
+                    <input type="text" id="middle-name" name="middleName" placeholder="e.g., Kumar">
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="lastName" placeholder="e.g., Verma" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address (optional)</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., yourname@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="aadhar">Aadhar Number *</label>
+                    <input type="text" id="aadhar" name="aadhar" placeholder="Enter 12-digit number" pattern="\d{12}"
+                        title="Aadhar number must be 12 digits" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="wasteRoleSelect">Please select your role in the Waste Management System:</label>
+                    <select id="wasteRoleSelect" name="wasteRole">
+                        <option value="">-- Select a Role --</option>
+                        <optgroup label="Citizens/Producers">
+                            <option value="Citizen">Citizen/Household</option>
+                            <option value="Resident">Resident</option>
+                            <option value="Commercial Business Owner">Commercial Business Owner</option>
+                            <option value="Industrial Producer">Industrial Producer</option>
+                            <option value="Institution Representative">Institution Representative (e.g., School, Hospital)</option>
+                        </optgroup>
+                        <optgroup label="External & Support Roles">
+                             <option value="Other">Other (Please specify in comments)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <button type="submit" onclick="goToPage('reg-otp.html')">GENERATE OTP</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(url) {
+            // Prevent form submission if validation fails, though the button is not a real submit
+            event.preventDefault(); 
+            window.location.href = url;
+        }
+
+        // Get the button and the navigation links
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        // Add a click event listener to the button
+        menuToggle.addEventListener('click', () => {
+            // Toggle the 'active' class on the nav links list
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
