@@ -4,31 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complaint Box</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="riya.css">
-    <div class="navbar">
-            <img src="logo.png" alt="Nirmal Bharat: Tech For a clean Future">
-            <h1><pre>            Nirmal Bharat:</pre> <pre> Tech For a clean Future</pre></h1>
-            <img style="float: right;" margin:0 auto; src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-green-leaf-icon-vector-png-image_6005736.png" alt="Tree" width="120px" height="100px" >
-           <b><h2><pre>          Clean India</pre><pre>                       Green India  </pre></h2></b>       
-    </div>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #e7baff, #c2b6d9);
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 70px;
+    background-color: #efeded;
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar h1 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.complaint-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#drop-area {
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px dashed #a4abe3;
+    cursor: pointer;
+}
+
+.img-view img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.img-view p {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.img-view span {
+    display: block;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 10px;
+}
+
+.text-input {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    resize: vertical;
+    outline: none;
+}
+
+.location-section {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#getLocationBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+#getLocationBtn:hover {
+    background-color: #0056b3;
+}
+
+#location-display {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+/* --- Media Query for Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+    .navbar h1 {
+        font-size: 1.2rem;
+    }
+    .main-container {
+        padding: 1rem;
+    }
+}
+    </style>
 </head>
 <body>
-<div class="upload">
-    <label for="input-file" id="drop-area">
-        <input type="file" accept="image/,video/" id="input-file" hidden>
-        <div class="img-view">
-        <img src="upload.png">
-        <p>Drag and Drop Or Click here<br> to upload images or videos</p>
-        <span>Upload any images or videos from desktop</span>
 
-        </div>
-    </label>
-</div>
-<div class="text" contenteditable="true">
-    Type Your complaint here.....
-      
+    <nav class="navbar">
+        <h1>Complaint Box</h1>
+    </nav>
 
-</div>
+    <div class="main-container">
+        <form class="complaint-form">
+            
+            <div id="drop-area">
+                <input type="file" accept="image/*,video/*" id="input-file" hidden>
+                <label for="input-file" class="img-view">
+                    <img src="upload.png" alt="Upload Icon">
+                    <p>Drag & Drop or Click here<br> to upload files</p>
+                    <span>Upload any images or videos from your device</span>
+                </label>
+            </div>
+
+            <textarea class="text-input" placeholder="Type your complaint here..."></textarea>
+
+            <div class="location-section">
+                <button type="button" id="getLocationBtn">Add My Current Location</button>
+                <p id="location-display">Your location will appear here.</p>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Complaint</button>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
