@@ -191,15 +191,93 @@
             text-align: center;
             margin-bottom: 15px;
         }
-        .photos, .links {
-            text-align: center;
+        
+        /* --- NEW CSS FOR PHOTO CAROUSEL --- */
+        /* This is the main container for the sliding photos. */
+        .photo-carousel {
+            display: flex;             /* Aligns children (the images) in a single row. */
+            overflow-x: auto;          /* Enables horizontal scrolling when content overflows. This is the key to the slider. */
+            scroll-snap-type: x mandatory; /* Enforces snapping behavior on the horizontal axis. When you stop scrolling, it will snap to an item. */
+            gap: 15px;                 /* Creates a 15px space between each photo. */
+            padding-bottom: 15px;      /* Adds some space below the images, so the scrollbar doesn't overlap them. */
+            -webkit-overflow-scrolling: touch; /* Provides a smoother scrolling experience on touch devices like mobiles. */
+            scrollbar-width: thin;     /* Makes the scrollbar thinner on Firefox. */
+            scrollbar-color: #6a6a6a #02035e; /* Styles the scrollbar color (thumb and track) on Firefox. */
+        }
+        
+        /* --- NEW CSS FOR PHOTO CAROUSEL SCROLLBAR (for Chrome/Safari/Edge) --- */
+        .photo-carousel::-webkit-scrollbar {
+            height: 8px;               /* Sets the height of the horizontal scrollbar. */
+        }
+        .photo-carousel::-webkit-scrollbar-track {
+            background: #02035e;       /* Sets the color of the scrollbar's track (the background). */
+        }
+        .photo-carousel::-webkit-scrollbar-thumb {
+            background-color: #6a6a6a; /* Sets the color of the scrollbar's handle (the part you drag). */
+            border-radius: 10px;       /* Rounds the corners of the scrollbar's handle. */
+            border: 2px solid #02035e; /* Creates a small border around the handle, matching the track color. */
         }
 
-        .photos img, .links img {
-            max-width: 100px; /* Make images responsive */
-            height: auto;
-            margin: 10px;
-            border-radius: 5px;
+        /* This styles the clickable link that wraps each image in the photo carousel. */
+        .photo-carousel a {
+            flex: 0 0 calc(33.333% - 10px); /* This is crucial for showing 3 items. 
+                                                'flex-grow: 0' -> don't grow. 
+                                                'flex-shrink: 0' -> don't shrink. 
+                                                'flex-basis: calc(33.333% - 10px)' -> each item's base width is one-third of the container, minus some space for the gap to prevent wrapping issues. */
+            scroll-snap-align: start;       /* Tells the scroll-snap container to align the start of this item when snapping. */
+        }
+
+        /* This styles the actual image inside the link. */
+        .photo-carousel img {
+            width: 100%;               /* Makes the image fill the entire width of its parent 'a' tag. */
+            height: 100%;              /* Makes the image fill the entire height of its parent 'a' tag. */
+            aspect-ratio: 4 / 3;       /* Enforces a 4:3 aspect ratio, ensuring all photo containers are the same size. */
+            object-fit: cover;         /* Resizes the image to cover the entire container while maintaining aspect ratio, cropping if necessary. */
+            border-radius: 5px;        /* Applies slightly rounded corners to the images. */
+        }
+
+        /* --- NEW CSS FOR VIDEO CAROUSEL --- */
+        /* This is the container for the sliding videos. It's styled very similarly to the photo carousel. */
+        .video-carousel {
+            display: flex;             /* Aligns videos in a single row. */
+            overflow-x: auto;          /* Enables horizontal scrolling. */
+            scroll-snap-type: x mandatory; /* Enforces snapping to the start of a video. */
+            gap: 15px;                 /* Creates space between each video. */
+            padding-bottom: 15px;      /* Adds space below for the scrollbar. */
+        }
+        
+        /* This styles each video element in the carousel. */
+        .video-carousel video {
+            flex: 0 0 48%;             /* Sets the base width to 48%. This means roughly two videos will be visible at a time. */
+            scroll-snap-align: start;  /* Aligns the start of the video for scroll snapping. */
+            border-radius: 5px;        /* Adds rounded corners to the video player. */
+            width: 100%;               /* Ensures the video is responsive within its flex container. */
+        }
+        
+        /* --- MODIFIED CSS FOR IMPORTANT LINKS --- */
+        /* The main container for the social media icons. */
+        .links {
+            /* text-align: center; was here, but flexbox is better for this layout. */
+            display: flex;                  /* Use Flexbox to easily align the icons. */
+            justify-content: space-around;  /* Distributes the icons evenly, with equal space around them. */
+            align-items: center;            /* Vertically centers the icons in the container. */
+            flex-wrap: wrap;                /* Allows the icons to wrap to the next line on very small screens. */
+            padding-top: 10px;              /* Adds some space between the "Important Links" title and the icons. */
+        }
+        
+        /* This styles the social media icon images. */
+        .links img {
+            max-width: 45px;          /* Sets a maximum width for the icons to keep them a reasonable size. Changed from 100px. */
+            height: auto;             /* Maintains the aspect ratio of the icon. */
+            margin: 5px 10px;         /* Provides vertical and horizontal spacing around each individual icon. */
+            border-radius: 5px;       /* Applies a slight rounding to the corners (optional, for consistency). */
+            transition: transform 0.2s ease-in-out; /* Adds a smooth transition effect for the hover state. */
+        }
+        
+        /* --- NEW HOVER EFFECT FOR LINKS --- */
+        /* Adds a simple scale-up effect when you hover over a social media icon. */
+        .links img:hover {
+            transform: scale(1.15);   /* Makes the icon slightly larger on hover for better user feedback. */
         }
 
         /* --- General Content Row for Stacking items --- */
@@ -290,7 +368,7 @@
             border-radius: 8px;
           
               padding: 20px;
-           box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+            box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
         }
         .metric-box {
             background-color: #f6ac63;
@@ -410,30 +488,30 @@
                 <h1>Tech For a Clean Future</h1>
             </div>
             <div class="clean-india">
-             <b><h2>Clean India<br>Green India</h2></b>
+            <b><h2>Clean India<br>Green India</h2></b>
             <img class="leaf-img" src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-green-leaf-icon-vector-png-image_6005736.png" alt="Tree">
             </div>
         </div>
         <div class="container">
-            <input type="radio" name="option" id="1" onclick="navigateToPage('index.html')" checked>
+            <input type="radio" name="option" id="1" onclick="navigateToPage('index.html')" checked/>
             <label for="1"><div class="tab-name"><i class="fa-solid fa-house"></i>&nbsp;Home</div></label>
 
-            <input type="radio" name="option" id="2" />
-            <label for="2"><div class="tab-name">About Us</div></label>
+            <input type="radio" name="option" id="2" onclick="navigateToPage('notices.html')" /> 
+            <label for="2"><div class="tab-name">Notices</div></label>
 
             <input type="radio" name="option" id="3" />
-            <label for="3"><div class="tab-name">Concerned Ministry Id</div></label>
+            <label for="3" onclick="navigateToPage('aboutMinistries.html')"><div class="tab-name">Concerned Ministry Id</div></label>
 
-            <input type="radio" name="option" id="4" />
+            <input type="radio" name="option" id="4" onclick="navigateToPage('dashboard.html')"/>
             <label for="4"><div class="tab-name">Dashboard</div></label>
 
-            <input type="radio" name="option" id="5" />
-            <label for="5"><div class="tab-name">Notice</div></label>
+            <input type="radio" name="option" id="5" onclick="navigateToPage('about.html')"/>
+            <label for="5"><div class="tab-name">About Us</div></label>
 
             <input type="radio" name="option" id="6" onclick="navigateToPage('newRegistration.html')">
             <label for="6"><div class="tab-name">New Registration</div></label>
 
-            <input type="radio" name="option" id="7" />
+            <input type="radio" name="option" id="7" onclick="navigateToPage('faqs.html')" />
             <label for="7"><div class="tab-name">FAQS</div></label>
         </div>
     </header>
@@ -451,18 +529,36 @@
                     <a href="#slide-1"></a>
                     <a href="#slide-2"></a>
                     <a href="#slide-3"></a>
-                    <a href="#slide-4"></a>            
+                    <a href="#slide-4"></a>                  
                 </div>
             </div>
             <div class="side-content">
                 <h1>Impact Stories</h1>
                 <hr>
-                <div class="photos">
+                <div class="photo-carousel">
                     <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzAx9443nsSPktfLE1wnUu1RxdUW4D47YcBA&s" alt="news"></a>
                     <a href="#"><img src="https://d14bpen9wiiku1.cloudfront.net/wp-content/uploads/2025/01/13220643/jan8-timesofindia.jpg" alt="localnews"></a>
                     <a href="#"><img src="https://img.etimg.com/thumb/msid-122751408,width-267,height-200,imgsize-143666,resizemode-4/news/india/swachh-survekshan-awards-2024-25-top-clean-cities-in-india-revealed.jpg" alt="govtnews"></a>
+                    <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzAx9443nsSPktfLE1wnUu1RxdUW4D47YcBA&s" alt="news story 4"></a> <a href="#"><img src="https://d14bpen9wiiku1.cloudfront.net/wp-content/uploads/2025/01/13220643/jan8-timesofindia.jpg" alt="localnews story 5"></a> </div>
+                <hr>
+                
+                <h1>Impact Videos</h1>
+                <div class="video-carousel">
+                    <video controls poster="https://via.placeholder.com/300x200.png?text=Video+1">
+                        <source src="your-video-1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video controls poster="https://via.placeholder.com/300x200.png?text=Video+2">
+                        <source src="your-video-2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                     <video controls poster="https://via.placeholder.com/300x200.png?text=Video+3">
+                        <source src="your-video-3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <hr>
+                
                 <h1>Important Links</h1>
                 <div class="links">
                     <a href="#"><img src="insta.png" alt="instagram"></a>
@@ -472,7 +568,7 @@
                     <a href="#"><img src="youtube-removebg-preview.png" alt="youtube"></a>
                 </div>
             </div>
-        </section>
+            </section>
 
         <section class="content-row">
             <div class="login-section">
