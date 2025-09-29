@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Bharata - FAQs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #00796b; /* A clean, green-blue color */
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* Section Title Styling */
+        h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 5px solid #00796b;
+            padding-left: 15px;
+        }
+
+        /* FAQ Accordion Styling using <details> and <summary> */
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item[open] {
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-item summary {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #111;
+            padding: 15px 20px;
+            cursor: pointer;
+            position: relative;
+            list-style: none; /* Remove default marker */
+            background-color: #fafafa;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-item summary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none; /* Hide for Chrome/Safari */
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5em;
+            color: #00796b;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            transform: translateY(-50%);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px 20px;
+            color: #555;
+            background-color: #ffffff;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* "Ask a Question" Section Styling */
+        .ask-question-section {
+            margin-top: 50px;
+            padding: 25px;
+            background-color: #e8f5e9; /* Light green background */
+            border-radius: 8px;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .ask-question-section p {
+            margin-top: 0;
+            color: #388e3c;
+        }
+
+        .ask-question-section textarea {
+            width: 100%;
+            padding: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; /* Important for padding and width */
+            min-height: 100px;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+
+        .ask-question-section .submit-btn {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .ask-question-section .submit-btn:hover {
+            background-color: #00695c;
+        }
+
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #777;
+        }
+        .footer a {
+            color: #00796b;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header class="header">
+            <h1>Nirmal Bharata</h1>
+            <p>Frequently Asked Questions (FAQs)</p>
+        </header>
+
+        <!-- Main FAQ Section -->
+        <section id="general-faqs">
+            <h2>General Questions</h2>
+            
+            <details class="faq-item">
+                <summary>What is Nirmal Bharata?</summary>
+                <div class="faq-answer">
+                    <p>Nirmal Bharata is a modern digital platform designed to connect citizens directly with the government's waste management system. It empowers you to report sanitation issues, track their resolution in real-time, and access important local data.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How can I report a problem?</summary>
+                <div class="faq-answer">
+                    <p>Once you sign up and log into your account, you can use the 'New Complaint' feature on your dashboard. Simply describe the issue, and your report will be sent directly to the concerned authorities for action.</p>
+                </div>
+            </details>
+            
+            <details class="faq-item">
+                <summary>How does the problem tracking system work?</summary>
+                <div class="faq-answer">
+                    <p>Every complaint you file receives a unique tracking ID. You can monitor the status of your complaint through your personal dashboard, which provides live updates and progress reports from field workers and authorities until the issue is fully resolved.</p>
+                </div>
+            </details>
+            
+            <details class="faq-item">
+                <summary>What other features are available for citizens?</summary>
+                <div class="faq-answer">
+                    <p>Besides complaint tracking, you can view insightful data about garbage collection in your area. This includes daily, weekly, monthly, and region-specific reports to keep you informed about the waste management performance in your locality.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Why is a government ID required for sign-up?</summary>
+                <div class="faq-answer">
+                    <p>We require a valid government-accepted ID for verification to ensure that all complaints are genuine and come from real citizens. This helps us maintain the integrity of the system and prevent misuse, allowing authorities to focus on legitimate issues.</p>
+                </div>
+            </details>
+            
+            <details class="faq-item">
+                <summary>What is the policy on fake complaints?</summary>
+                <div class="faq-answer">
+                    <p>To ensure the system is used responsibly, we have a strict review process. If an account is found guilty of filing three consecutive fake complaints, it will be temporarily blocked from the platform.</p>
+                </div>
+            </details>
+
+        </section>
+
+        <!-- "Ask a Question" Section -->
+        <section id="ask-question" class="ask-question-section">
+            <h2>Have a Different Question?</h2>
+            <p>If you can't find the answer you're looking for, feel free to ask us directly. Fill out the form below, and we'll get back to you.</p>
+            <form action="#" method="POST"> <!-- Form is for display purposes only -->
+                <textarea name="custom_question" placeholder="Type your question here..." required></textarea>
+                <button type="submit" class="submit-btn">Submit Question</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>For immediate assistance, call our Toll-Free Number: <strong>XXXX-XXX-XXXX</strong></p>
+            <p>&copy; 2024 Nirmal Bharata. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
