@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Box</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Corrected from 'border: border-box;' */
+            font-family: serif;
+        }
+
+        body {
+            background-image: url('back.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* --- Navbar Styles --- */
+        .navbar {
+            height: 90px;
+            background-color: #efeded;
+            color: black;
+            padding: 0 20px; /* Add some padding */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: space-between; /* Space out children */
+            align-items: center; /* Vertically center children */
+            border-bottom: 2px solid #ddd;
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between logo and text */
+        }
+
+        .navbar .logo-container img {
+            height: 60px; /* Give a fixed height */
+            width: auto;
+        }
+
+        .navbar h1 {
+            text-transform: uppercase;
+            font-weight: bolder;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .navbar h1 span {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .navbar .slogan-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar .slogan-container img {
+            height: 70px;
+            width: auto;
+        }
+
+        .navbar h2 {
+            color: rgb(211, 110, 27);
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-align: right;
+        }
+
+        /* --- Main Content & Login Form Styles --- */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; /* Add padding for spacing */
+        }
+        
+        .wrapper {
+            width: 100%;
+            max-width: 450px; /* Set a max-width for large screens */
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #100b0b;
+            border-radius: 10px;
+            padding: 30px 40px;
+        }
+
+        .wrapper h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        /* Corrected selector: Added '.' before input-box */
+        .wrapper .input-box {
+            position: relative; /* Needed for icon positioning */
+            width: 100%;
+            height: 50px;
+            margin: 25px 0;
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            outline: none;
+            border-radius: 40px;
+            font-size: 1rem;
+            color: #333; /* Darker text for readability */
+            padding: 0 45px 0 20px;
+        }
+
+        .input-box input::placeholder {
+            color: #555; /* Darker placeholder */
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .wrapper .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .remember-forgot label input {
+            accent-color: #333;
+            margin-right: 3px;
+        }
+
+        .remember-forgot a {
+            color: #2727dc;
+            text-decoration: none;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        /* Corrected selector and class name */
+        .wrapper .login-btn {
+            width: 100%;
+            height: 45px;
+            background: #e81d1d;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .wrapper .login-btn:hover {
+            background: #c71a1a;
+        }
+
+        .wrapper .register-link {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register-link p a {
+            color: #2727dc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link p a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+        /* Styles for tablets and mobile phones */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column; /* Stack navbar items vertically */
+                height: auto; /* Allow height to grow */
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .navbar h1 {
+                font-size: 1rem;
+            }
+            
+            .navbar h1 span {
+                font-size: 0.8rem;
+            }
+
+            .navbar h2 {
+                font-size: 1rem;
+            }
+
+            .wrapper {
+                width: 90%; /* Make the form take up more screen width */
+                padding: 20px 25px;
+            }
+
+            .wrapper h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Styles for very small mobile phones */
+        @media (max-width: 480px) {
+            .navbar .slogan-container {
+                display: none; /* Hide the slogan on very small screens to save space */
+            }
+            
+            .wrapper .remember-forgot {
+                flex-direction: column; /* Stack 'remember me' and 'forgot password' */
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Nirmal Bharat Logo">
+            <h1>Nirmal Bharat: <br><span>Tech For a clean Future</span></h1>
+        </div>
+        <div class="slogan-container">
+            <img src="https://png.pngtree.com/png-vector/20220719/ourmid/pngtree-green-leaf-icon-vector-png-image_6005736.png" alt="Tree">
+            <h2>Clean India, Green India</h2>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="wrapper">
+            <form action="">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn" onclick="navigateToPage('camerra.html')">Login</button>
+                <div class="register-link">
+                    <p>Don't have an account? <a href="newRegistration.html">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+
+    <script>
+        function navigateToPage(url) {
+            window.location.href = url; // Navigates within the same window/tab
+        }
+    </script>
+
+</html>
