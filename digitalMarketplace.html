@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmal Bharat : Digital Marketplace</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Page Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #2E7D32; /* A shade of green */
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            transition: font-size 0.3s ease; /* Added transition for smooth resizing */
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .navbar li {
+            display: inline-block;
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+        
+        /* Main Content Area */
+        .main-content {
+            padding: 20px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #2E7D32;
+        }
+
+        /* Product Grid Styles */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between cards */
+        }
+
+        /* Product Card Styles */
+        .product-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* width: 280px; <-- Replaced with flex for responsiveness */
+            flex: 1 1 280px; /* Allows item to grow and shrink, with a base width of 280px */
+            max-width: 320px; /* Prevents cards from becoming too wide on large screens */
+            padding: 15px;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 0.9em;
+            color: #666;
+            min-height: 60px; /* Changed to min-height for flexibility */
+        }
+
+        .product-price {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2E7D32;
+            margin-bottom: 15px;
+        }
+
+        .product-button {
+            background-color: #FFA000; /* An amber/orange color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .product-button:hover {
+            background-color: #FFB300;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        /* --- Responsive Design Media Queries --- */
+
+        /* For Mobile Devices */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em; /* Reduce header font size */
+            }
+
+            .navbar li {
+                display: block; /* Stack navigation links vertically */
+                width: 100%;
+            }
+
+            /* The flex properties on .product-card handle the layout automatically,
+               so no extra rules are needed here for the cards to stack. */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Nirmal Bharat : Digital Marketplace</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-grid">
+
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/A8E6CF/333?text=Recycled+Planter" alt="Recycled Planter">
+                <h3>Recycled Plastic Planters</h3>
+                <p>Eco-friendly planters made from 100% recycled plastic bottles. Perfect for your home garden.</p>
+                <div class="product-price">₹149</div>
+                <a href="#" class="product-button">View Details</a>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/FFD3B6/333?text=Composite+Bench" alt="Composite Bench">
+                <h3>Composite Garden Bench</h3>
+                <p>Durable and weather-resistant bench made from wood-plastic composite materials.</p>
+                <div class="product-price">Exchange Available</div>
+                <a href="#" class="product-button">View Details</a>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/DCEDC1/333?text=Bio-Gas+Kit" alt="Bio-Gas Kit">
+                <h3>Home Bio-Gas Kit</h3>
+                <p>A compact kit to convert your kitchen waste into cooking gas. Sustainable living made easy.</p>
+                <div class="product-price">₹4,999</div>
+                <a href="#" class="product-button">View Details</a>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/FF8A80/333?text=Upcycled+Tote" alt="Upcycled Tote Bag">
+                <h3>Upcycled Tote Bag</h3>
+                <p>Stylish and strong tote bags crafted from reclaimed industrial fabric waste.</p>
+                <div class="product-price">₹450</div>
+                <a href="#" class="product-button">View Details</a>
+            </div>
+            
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/84FFFF/333?text=Tyre+Furniture" alt="Recycled Tyre Furniture">
+                <h3>Recycled Tyre Stool</h3>
+                <p>A unique and sturdy stool for your living space, creatively made from used tyres.</p>
+                <div class="product-price">Exchange Available</div>
+                <a href="#" class="product-button">View Details</a>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div class="product-card">
+                <img src="https://placehold.co/400x300/CFD8DC/333?text=Paper+Pens" alt="Seed Paper Pens">
+                <h3>Seed Paper Pens</h3>
+                <p>Biodegradable pens made from recycled paper with seeds at the end. Use and grow!</p>
+                <div class="product-price">₹150 (Pack of 10)</div>
+                <a href="#" class="product-button">View Details</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Nirmal Bharat : Digital Marketplace. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
