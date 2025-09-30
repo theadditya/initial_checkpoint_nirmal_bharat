@@ -353,7 +353,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="aboutMinistries.html">Concerned Ministries</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="notice.html">Notice</a></li>
+                    <li><a href="notices.html">Notice</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="faqs.html">FAQs</a></li>
                 </ul>
@@ -395,9 +395,15 @@
                         title="Aadhar number must be 12 digits" required>
                 </div>
 
+                 <div class="form-group">
+                    <label for="aadhar">PAN Number (if interested in marketplace distributer/seller role)</label>
+                    <input type="text" id="pan" name="pan" placeholder="Enter 10-alpha-numerical entries" pattern="{10}"
+                        title="PAN number must be 10 digits" >
+                </div>
+
                 <div class="form-group">
-                    <label for="wasteRoleSelect">Please select your role in the Waste Management System:</label>
-                    <select id="wasteRoleSelect" name="wasteRole">
+                    <label for="wasteRoleSelect">Please select your role in the Waste Management System: *</label>
+                    <select id="wasteRoleSelect" name="wasteRole" required>
                         <option value="">-- Select a Role --</option>
                         <optgroup label="Citizens/Producers">
                             <option value="Citizen">Citizen/Household</option>
@@ -437,5 +443,4 @@
     </script>
 
 </body>
-
 </html>
